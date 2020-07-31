@@ -14,22 +14,94 @@
             } else if (selection == 2) {
                 return 'paper';
             } else {
-                return 'scissors'
+                return 'scissors';
             }
         }
 
         function computerSelection() {
-
+            return computerPlay();
         }
 
         function playerSelection() {
-
+            selection = prompt("Rock, Paper or Scissors?")
+            selection = selection.toLowerCase();
+            if (selection == 'rock') {
+                return 'rock';
+            } else if (selection == 'paper') {
+                return 'paper';
+            } else if (selection == 'scissors') {
+                return 'scissors';
+            } else {
+                return 'You entered an invalid option. please reload the page.';
+            }
         }
 
-        function playRound(playerSelection, computerSelection) {
-
+        function playRound(pSelection, cSelection) {
+            if (pSelection == 'rock') {
+                if (cSelection == 'rock') {
+                    return 'Draw! ' + pSelection + ' on ' + cSelection;
+                } else if (cSelection == 'paper') {
+                    return 'You Lose! ' + cSelection + ' beats ' + pSelection;
+                } else if (cSelection == 'scissors') {
+                    return 'You Won! ' + pSelection + ' beats ' + cSelection;
+                }
+            }
+            if (pSelection == 'paper') {
+                if (cSelection == 'rock') {
+                    return 'You Won! ' + pSelection + ' beats ' + cSelection;
+                } else if (cSelection == 'paper') {
+                    return 'Draw! ' + pSelection + ' on ' + cSelection;
+                } else if (cSelection == 'scissors') {
+                    return 'You Lose! ' + cSelection + ' beats ' + pSelection;
+                }
+            }
+            if (pSelection == 'scissors') {
+                if (cSelection == 'rock') {
+                    return 'You Lose! ' + cSelection + ' beats ' + pSelection;
+                } else if (cSelection == 'paper') {
+                    return 'You Won! ' + pSelection + ' beats ' + cSelection;
+                }
+            }
         }
 
+
+        const playerSelect = playerSelection();
+        const computerSelect = computerPlay();
+
+        function game() {
+            console.log(playRound(playerSelect, computerSelect));
+            console.log(playRound(playerSelect, computerSelect));
+            console.log(playRound(playerSelect, computerSelect));
+            console.log(playRound(playerSelect, computerSelect));
+            console.log(playRound(playerSelect, computerSelect));
+        }
+
+        game();
+
+
+
+        /*
+        if (pSelection() == 'rock' && cSelection() == 'rock') {
+                return 'Draw! Rock on Rock';
+            } else if (pSelection == 'rock' && cSelection == 'paper') {
+                return 'You Lose! Paper beats Rock';
+            } else if (pSelection == 'rock' && cSelection == 'scissors') {
+                return 'You Win! Rock best Scissors';
+            } else if (pSelection == 'paper' && cSelection == 'rock') {
+                return 'You Win! Paper beats Rock';
+            } else if (pSelection == 'paper' && cSelection == 'paper') {
+                return 'Draw! Paper on Paper';
+            } else if (pSelection == 'paper' && cSelection == 'scissors') {
+                return 'You Lose! Paper beats Scissors';
+            } else if (pSelection == 'scissors' && cSelection == 'rock') {
+                return 'You Lose! Rock beats Scissors';
+            } else if (pSelection == 'scissors' && cSelection == 'paper') {
+                return 'You Win! Scissors beats Paper';
+            } else if (pSelection == 'scissors' && cSelection == 'scissors') {
+                return 'Draw! Scissors on Scissors';
+            }            
+        }
+        */
     </script>
 </body>
 </html>
